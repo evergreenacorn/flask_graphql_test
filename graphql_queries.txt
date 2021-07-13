@@ -1,42 +1,42 @@
 query fetchAllTodos {
-  todos {
-    success
-    errors
     todos {
-      description
-      completed
-      id
+        success
+        errors
+        todos {
+            description
+            completed
+            id
+        }
     }
-  }
 }
 
 query fetchTodo {
-  todo(todoId: "1") {
-    success
-    errors
-    todo { id completed description dueDate }
-  }
+    todo(todoId: "1") {
+        success
+        errors
+        todo { id completed description dueDate }
+    }
 }
 
 mutation newTodo {
     createTodo(
-          description:"Go to the dentist",
-          dueDate:"24-10-2020")
-        {
-      success
-      errors
-      todo {
-        id
-        completed
-        description
-      }
+            description:"Go to the dentist",
+            dueDate:"24-10-2020")
+    {
+        success
+        errors
+        todo {
+            id
+            completed
+            description
+        }
     }
-  }
+}
 
 mutation markDone {
-markDone(todoId: "1") {
-    success
-    errors
-    todo { id completed description dueDate }
-}
+    markDone(todoId: "1") {
+        success
+        errors
+        todo { id completed description dueDate }
+    }
 }
