@@ -15,6 +15,8 @@ query.set_field("todos", resolve_todos)
 # Функция принимает имя файла схемы.
 # Эта функция проверяет схему и возвращает ее строковое представление.
 type_defs = load_schema_from_path("app/schema.graphql")
+# Функция берет на себя type_defsпеременная со строковым представлением
+# нашей схемы и queryпреобразователь, который мы только что создали.
 schema = make_executable_schema(
     type_defs,
     query,
