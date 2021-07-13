@@ -28,3 +28,24 @@ def resolve_create_todo(obj, info, description, due_date):
             ]
         }
     return payload
+
+
+@convert_kwargs_to_snake_case
+def resolve_mark_done(obj, info, todo_id):
+    try:
+        todo = Todo.query.get(todo_id)
+        todo.completed = True
+        db.session.add(todo)
+        db.session.commit()
+        payload = {
+            "success": True,
+            "todo": todo.to_dict()
+        }
+    except AttributeError:
+        payload = {
+            "success": False,
+            "todo": [
+                f"Todo matching id {todo_id} was not found"
+            ]
+        }
+    return payload
