@@ -49,3 +49,20 @@ def resolve_mark_done(obj, info, todo_id):
             ]
         }
     return payload
+
+
+@convert_kwargs_to_snake_case
+def resolve_delete_todo(obj, info, todo_id):
+    try:
+        todo = Todo.query.get(todo_id)
+        db.session.delete(todo)
+        db.session.commit()
+        payload = {"success": True}
+
+    except AttributeError:
+        payload = {
+            "success": False,
+            "errors": [f"Todo matching id {todo_id} not found"]
+        }
+
+    return payload
