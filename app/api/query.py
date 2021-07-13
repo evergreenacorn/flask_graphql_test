@@ -19,6 +19,7 @@ def resolve_todos(obj, info):
     return payload
 
 
+@convert_kwargs_to_snake_case
 def resolve_todo(obj, info, todo_id):
     try:
         todo = Todo.query.get(todo_id)
