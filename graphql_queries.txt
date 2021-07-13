@@ -40,3 +40,10 @@ mutation markDone {
         todo { id completed description dueDate }
     }
 }
+
+mutation deleteTodo{
+    deleteTodo(todoId: "2") {
+        success
+        errors
+    }
+}
