@@ -38,3 +38,5 @@ def resolve_hello(_, info):
 Запросы нужны для чтения данных (GET-запросы).
 ## Мутации (mutations)
 Мутации нужны для полноценной реализации **C**R**UD**(create, update and delete) функций.
+
+# Хорошая [статья](https://blog.graphqleditor.com/top-3-python-libraries-for-graphql), в которой собраны самые популярные пакеты для работы с GraphQL в Python
