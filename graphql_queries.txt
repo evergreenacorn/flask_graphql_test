@@ -47,3 +47,10 @@ mutation deleteTodo{
         errors
     }
 }
+
+mutation updateDueDate {
+    updateDueDate(todoId: "2", newDate: "25-10-2020") {
+        success
+        errors
+    }
+}
